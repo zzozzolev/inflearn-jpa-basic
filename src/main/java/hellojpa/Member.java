@@ -1,14 +1,28 @@
 package hellojpa;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 public class Member {
 
     @Id
+    @Column(name = "member_id")
     private Long id;
+
     private String name;
+
+    private Integer age;
+
+    @Enumerated(EnumType.STRING)
+    private RoleType roleType;
+
+    private LocalDateTime createdDate;
+
+    private LocalDateTime updatedDate;
+
+    @Lob
+    private String desc;
 
     public Member() {
     }
